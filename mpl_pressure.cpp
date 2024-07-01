@@ -54,7 +54,7 @@ void MPLComponent::read_temp_press_() {
   double temperature = (temp_counts * 200 / 16777215) - 50; // calculate temperature in deg c
   double percentage = (press_counts / 16777215) * 100; // calculate pressure as percentage of full scale
   //calculation of pressure value according to equation 2 of datasheet
-  double pressure = ((press_counts - outputmin) * (pmax)) / (outputmax - outputmin);
+  double pressure = 68.9476 * ((press_counts - outputmin) * (pmax)) / (outputmax - outputmin);
 
   ESP_LOGD(TAG, "Got Temperature=%.1f °C", temperature);
   ESP_LOGD(TAG, "Got Pressure=%.1f hPa", pressure);
