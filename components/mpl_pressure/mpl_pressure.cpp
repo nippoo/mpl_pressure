@@ -16,7 +16,7 @@ void MPLComponent::update() {
   if (!this->write(cmd, 4, true)) {
     this->mark_failed();
     return;
-
+  }
   this->set_timeout("temperature", 10, [this]() { this->read_temp_press_(); });
 }
 
